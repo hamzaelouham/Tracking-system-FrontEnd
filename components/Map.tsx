@@ -1,24 +1,22 @@
-import { useState } from "react";
 import {
   MapContainer,
   TileLayer,
   Marker,
   Popup,
   CircleMarker,
-  Tooltip,
 } from "react-leaflet";
 import { carIcon } from "./icon";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "leaflet-defaulticon-compatibility";
 
-const Map = () => {
-  const [position, setPosition] = useState<any>([51.505, -0.09]);
+const DEFAULT_ZOOM = 10;
 
+const Map = ({ position }: any) => {
   return (
     <MapContainer
       center={position}
-      zoom={13}
+      zoom={DEFAULT_ZOOM}
       scrollWheelZoom={false}
       className="map"
     >
@@ -26,6 +24,7 @@ const Map = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+
       <CircleMarker
         center={position}
         pathOptions={{ color: "#0E5DE2" }}
@@ -33,7 +32,10 @@ const Map = () => {
       >
         <Marker position={position} icon={carIcon}>
           <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
+            <div className="flex items-center">
+              <div className="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div>
+              <p className="text-sm"> Online</p>
+            </div>
           </Popup>
         </Marker>
       </CircleMarker>

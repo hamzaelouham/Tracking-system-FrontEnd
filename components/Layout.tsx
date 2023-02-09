@@ -11,7 +11,7 @@ export default function Layout({ children }: Props) {
   const [showNav, setShowNav] = useState<boolean>(true);
   const [isMobile, setIsMobile] = useState(false);
 
-  function handleResize() {
+  const handleResize = () => {
     if (innerWidth <= 640) {
       setShowNav(false);
       setIsMobile(true);
@@ -19,8 +19,7 @@ export default function Layout({ children }: Props) {
       setShowNav(true);
       setIsMobile(false);
     }
-  }
-
+  };
   useEffect(() => {
     if (typeof window != undefined) {
       addEventListener("resize", handleResize);
@@ -44,7 +43,7 @@ export default function Layout({ children }: Props) {
         leaveFrom="translate-x-0"
         leaveTo="-translate-x-full"
       >
-        <SideBar showNav={showNav} />
+        <SideBar />
       </Transition>
       <main
         className={`pt-16 transition-all duration-[400ms] ${

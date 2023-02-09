@@ -18,7 +18,7 @@ interface Props {
 export default function Header({ showNav, setShowNav }: Props) {
   return (
     <div
-      className={`fixed w-full h-16 flex justify-between items-center transition-all duration-[400ms] bg-slight ${
+      className={`fixed w-full h-16 flex justify-between items-center transition-all duration-[400ms] bg-white ${
         showNav ? "pl-56" : ""
       }`}
     >

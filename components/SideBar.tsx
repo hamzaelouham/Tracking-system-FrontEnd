@@ -1,10 +1,10 @@
 import { forwardRef } from "react";
 import Vehicles from "./Vehicles";
 
-const SideBar = forwardRef(({ showNav }: { showNav: boolean }, ref) => {
+const SideBar = forwardRef((ref) => {
   return (
     // @ts-ignore
-    <div ref={ref} className="fixed w-56 h-full bg-slight shadow-sm">
+    <div ref={ref} className="fixed w-56 h-full bg-white shadow-sm">
       <div className="flex justify-center mt-6 mb-14 ">
         <picture>
           <img
@@ -14,7 +14,6 @@ const SideBar = forwardRef(({ showNav }: { showNav: boolean }, ref) => {
           />
         </picture>
       </div>
-
       <div className="flex flex-col bg-white">
         <Vehicles />
       </div>
