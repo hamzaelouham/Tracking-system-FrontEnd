@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 
 const Home: NextPage = () => {
-  // const [position, setPosition] = useState<any>(null);
-  // const [online, setOnline] = useState(false);
   const Map = dynamic(() => import("../components/Map"), {
     ssr: false,
   });

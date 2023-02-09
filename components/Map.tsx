@@ -4,15 +4,27 @@ import {
   Marker,
   Popup,
   CircleMarker,
+  useMap,
 } from "react-leaflet";
 import { carIcon } from "./icon";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "leaflet-defaulticon-compatibility";
+import { useGloble } from "../context/";
+import { FC } from "react";
 
 const DEFAULT_ZOOM = 10;
+const MapView = ({ position }: any) => {
+  const map = useMap();
+  map.setView(position, map.getZoom());
 
-const Map = ({ position }: any) => {
+  return null;
+};
+
+const Map: FC = () => {
+  // @ts-ignore
+  const { position } = useGloble();
+
   return (
     <MapContainer
       center={position}
@@ -39,6 +51,7 @@ const Map = ({ position }: any) => {
           </Popup>
         </Marker>
       </CircleMarker>
+      <MapView position={position} />
     </MapContainer>
   );
 };

@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import Vehicles from "./Vehicles";
 
-const SideBar = forwardRef((ref) => {
+const SideBar = forwardRef(({}, ref) => {
   return (
     // @ts-ignore
     <div ref={ref} className="fixed w-56 h-full bg-white shadow-sm">

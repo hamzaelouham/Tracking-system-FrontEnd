@@ -6,27 +6,30 @@ import {
   useState,
   useEffect,
 } from "react";
-import { socket } from "../socket";
+import io from "socket.io-client";
 
 interface Props {
   children: ReactNode;
 }
 
-const TrackContext = createContext({});
+const Store = createContext({});
 
 export const StateProvider: FC<Props> = ({ children }) => {
-  const [position, setPosition] = useState<any>(null);
+  const [position, setPosition] = useState<any>([0, 0]);
   const [online, setOnline] = useState(false);
+  const [speed, setSpeed] = useState<number>(0);
 
   useEffect(() => {
+    const socket = io("http://localhost:4000");
+
     socket.on("connect", () => {
       console.log("connect to server");
     });
 
     socket.on("gps", (gps) => {
       setOnline(true);
-      let data = [33.9715904, -6.8498129];
-      setPosition(gps);
+      setPosition(gps.coordinate);
+      setSpeed(gps.speed);
     });
 
     socket.on("disconnect", () => {
@@ -41,12 +44,12 @@ export const StateProvider: FC<Props> = ({ children }) => {
   }, []);
 
   return (
-    <TrackContext.Provider value={{ position, online }}>
+    <Store.Provider value={{ position, online, speed }}>
       {children}
-    </TrackContext.Provider>
+    </Store.Provider>
   );
 };
 
-export const useProps = () => {
-  return useContext(TrackContext);
+export const useGloble = () => {
+  return useContext(Store);
 };

@@ -1,5 +1,8 @@
+import { useGloble } from "../context/";
 export default function () {
-  const online = true;
+  // @ts-ignore
+  const { online, speed } = useGloble();
+
   return (
     <div className="flex flex-col ml-1 mr-1">
       <div className="w-full mb-2 pb-2  shadow-sm text-left flex justify-between items-center p-1 text-xs font-bold text-gray-700 uppercase bg-gray-50">
@@ -17,7 +20,7 @@ export default function () {
             />
           </div>
           <div>
-            <p>15 km/h</p>
+            <p>{speed} km/h</p>
           </div>
           <div>
             <div className="flex items-center">
