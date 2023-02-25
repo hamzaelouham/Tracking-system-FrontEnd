@@ -57,49 +57,10 @@ export default function Header({ showNav, setShowNav }: Props) {
                     </div>
                     <div className="ml-4">
                       <p className="font-medium text-gray-700">
-                        Notification Title
+                        Respect limit speed
                       </p>
                       <p className="text-sm text-gray-500 truncate">
-                        Test Notification text for design
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex">
-                    <div className="rounded-full shrink-0 bg-green-200 h-8 w-8 flex items-center justify-center">
-                      <CheckIcon className="h-4 w-4 text-green-600" />
-                    </div>
-                    <div className="ml-4">
-                      <p className="font-medium text-gray-700">
-                        Notification Title
-                      </p>
-                      <p className="text-sm text-gray-500 truncate">
-                        Test Notification text for design
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex">
-                    <div className="rounded-full shrink-0 bg-green-200 h-8 w-8 flex items-center justify-center">
-                      <CheckIcon className="h-4 w-4 text-green-600" />
-                    </div>
-                    <div className="ml-4">
-                      <p className="font-medium text-gray-700">
-                        Notification Title
-                      </p>
-                      <p className="text-sm text-gray-500 truncate">
-                        Test Notification text for design
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex">
-                    <div className="rounded-full shrink-0 bg-green-200 h-8 w-8 flex items-center justify-center">
-                      <CheckIcon className="h-4 w-4 text-green-600" />
-                    </div>
-                    <div className="ml-4">
-                      <p className="font-medium text-gray-700">
-                        Notification Title
-                      </p>
-                      <p className="text-sm text-gray-500 truncate">
-                        Test Notification text for design
+                        please don't bypass limit speed
                       </p>
                     </div>
                   </div>
@@ -111,15 +72,15 @@ export default function Header({ showNav, setShowNav }: Props) {
         <Menu as="div" className="relative inline-block text-left">
           <div>
             <Menu.Button className="inline-flex w-full justify-center items-center">
-              <picture>
+              {/* <picture>
                 <img
                   src="/logo.webp"
                   className="rounded-full h-8 md:mr-4 border-2 border-white shadow-sm"
                   alt="profile picture"
                 />
-              </picture>
+              </picture> */}
               <span className="hidden md:block font-medium text-gray-700">
-                Rettson
+                HM
               </span>
               <ChevronDownIcon className="ml-2 h-4 w-4 text-gray-700" />
             </Menu.Button>
