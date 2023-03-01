@@ -20,7 +20,8 @@ export const StateProvider: FC<Props> = ({ children }) => {
   const [speed, setSpeed] = useState<number>(0);
 
   useEffect(() => {
-    const socket = io("http://localhost:4000");
+    const url = process.env.NEXT_PUBLIC_SOCKET_URL || "http://localhost:4000";
+    const socket = io(url);
 
     socket.on("connect", () => {
       console.log("connect to server");
